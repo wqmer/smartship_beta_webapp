@@ -94,7 +94,7 @@ module.exports = (env) => {
       publicPath: "/dist/",
       proxy: {
         "/api": {
-          target: "https://smartship-beta-api-server.herokuapp.com",
+          target: "http://smartship-beta-api-server.herokuapp.com",
           // target: "http://[::1]:5050",
           pathRewrite: { "^/api": "" },
           changeOrigin: true,
