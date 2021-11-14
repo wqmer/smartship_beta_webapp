@@ -667,15 +667,18 @@ class AddressForm extends React.Component {
         country_code: "US",
       });
 
-      let result = await post("beta/addressValidate", {
-        line1: udpateData.address_one,
-        line2: udpateData.address_two,
-        line3: "",
-        city: udpateData.city,
-        state_province: udpateData.state,
-        postal_code: udpateData.zip_code,
-        country_code: "US",
-      });
+      let result = await post(
+        "beta/addressValidate",
+        JSON.stringify({
+          line1: udpateData.address_one,
+          line2: udpateData.address_two,
+          line3: "",
+          city: udpateData.city,
+          state_province: udpateData.state,
+          postal_code: udpateData.zip_code,
+          country_code: "US",
+        })
+      );
 
       if (result.code == 0) {
         message.success({
@@ -875,12 +878,13 @@ class AddressForm extends React.Component {
                         .getFieldsError()
                         .filter(({ errors }) => errors.length).length == 0;
 
-                    let haveTrouchedRequiredfields = this.formRef.current.isFieldsTouched(
-                      form_asset
-                        .filter((item) => item.is_required == true)
-                        .map((item) => item.key),
-                      true
-                    );
+                    let haveTrouchedRequiredfields =
+                      this.formRef.current.isFieldsTouched(
+                        form_asset
+                          .filter((item) => item.is_required == true)
+                          .map((item) => item.key),
+                        true
+                      );
                     return !isNoError || !haveTrouchedRequiredfields;
                   } else {
                     // this.setState({ is_first_render: false });
@@ -929,11 +933,8 @@ class AddressForm extends React.Component {
         </Form>
 
         <Divider hidden={!this.state.showResult} />
-        <Row
-          hidden={!this.state.showResult}
-          gutter={24}
-        >
-          <Col xs={24} md={24} lg={24} xl = {24} xxl = { 12}>
+        <Row hidden={!this.state.showResult} gutter={24}>
+          <Col xs={24} md={24} lg={24} xl={24} xxl={12}>
             <div>
               <Title level={5}>结果报告</Title>
               <Spin spinning={this.state.is_fetching}>
@@ -965,7 +966,7 @@ class AddressForm extends React.Component {
               </Spin>
             </div>
           </Col>
-          <Col xs={24} md={24} lg={24} xl = {24} xxl = { 12}>
+          <Col xs={24} md={24} lg={24} xl={24} xxl={12}>
             <div>
               <Title level={5}>匹配地址</Title>
               <Spin spinning={this.state.is_fetching}>

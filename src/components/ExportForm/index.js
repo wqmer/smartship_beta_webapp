@@ -283,7 +283,6 @@ class ExportForm extends React.Component {
   };
 
   onFinish = async (values) => {
-
     try {
       let query = {
         request_id: values.agent,
@@ -291,19 +290,22 @@ class ExportForm extends React.Component {
         inform_at: {
           // $gte: values.date[0].startOf('day'),
           // $lte: values.date[1].endOf('day')
-          $gte: values.date[0].startOf('day').format("YYYY-MM-DD HH:mm"),
-          $lte: values.date[1].endOf('day').format("YYYY-MM-DD HH:mm")
+          $gte: values.date[0].startOf("day").format("YYYY-MM-DD HH:mm"),
+          $lte: values.date[1].endOf("day").format("YYYY-MM-DD HH:mm"),
         },
       };
-      console.log(query.inform_at)
+      console.log(query.inform_at);
       let select = values.header.concat("-_id");
 
       message.loading({ content: "fetching...", key: "fetch" });
       this.setState({ is_fetching: true });
-      let result = await post("beta/exportRefundAndAdjustment", {
-        query,
-        select,
-      });
+      let result = await post(
+        "beta/exportRefundAndAdjustment",
+        JSON.stringify({
+          query,
+          select,
+        })
+      );
       // console.log(values.date[0].toString(), values.date[1].toString());
       message.success({
         content: "Fetch data successfully and start to download",
@@ -369,7 +371,7 @@ class ExportForm extends React.Component {
           padding: "36px 24px 56px 24px",
         }}
       >
-        <Form  layout="vertical" ref={this.formRef} onFinish={this.onFinish}>
+        <Form layout="vertical" ref={this.formRef} onFinish={this.onFinish}>
           {show_form_item(form_item_content, this.formRef.current)}
           <Form.Item shouldUpdate>
             {() => {
@@ -383,12 +385,13 @@ class ExportForm extends React.Component {
                       .getFieldsError()
                       .filter(({ errors }) => errors.length).length == 0;
 
-                  let haveTrouchedRequiredfields = this.formRef.current.isFieldsTouched(
-                    form_item_content
-                      .filter((item) => item.is_required == true)
-                      .map((item) => item.key),
-                    true
-                  );
+                  let haveTrouchedRequiredfields =
+                    this.formRef.current.isFieldsTouched(
+                      form_item_content
+                        .filter((item) => item.is_required == true)
+                        .map((item) => item.key),
+                      true
+                    );
                   return !isNoError || !haveTrouchedRequiredfields;
                 } else {
                   // this.setState({ is_first_render: false });
@@ -406,7 +409,7 @@ class ExportForm extends React.Component {
               return (
                 <Button
                   type="primary"
-                  style={{marginTop:12}}
+                  style={{ marginTop: 12 }}
                   htmlType="submit"
                   disabled={isDisabled()}
                   loading={this.state.is_fetching}

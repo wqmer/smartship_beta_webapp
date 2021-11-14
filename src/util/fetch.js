@@ -26,6 +26,7 @@ let config = {
     headers: {
         // 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
         // 'Accept': 'application/json, text/plain',
+        'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json'
     },
     timeout: 60000,
