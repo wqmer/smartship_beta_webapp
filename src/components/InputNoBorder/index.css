@@ -1,0 +1,9 @@
+.ant-input.customInput {
+    border: none !important;
+    /* outline: none !important; */
+    outline-style: solid!important;
+    outline-color: white!important;
+    /* border-bottom: 1px solid rgb(191, 193, 195) !important; */
+   
+    /* width: 10px; */
+}

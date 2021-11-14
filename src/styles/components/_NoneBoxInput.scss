@@ -1,0 +1,9 @@
+.customInput{
+    :global {
+        .ant-input-affix-wrapper .ant-input:focus {
+            border: none;
+            border-bottom: 1px solid white !important;
+            box-shadow: none;
+        }
+    }
+  }
