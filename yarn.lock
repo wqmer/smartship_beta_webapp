@@ -4882,15 +4882,15 @@
   dependencies:
     "is-obj" "^1.0.0"
 
+"dotenv@^4.0.0":
+  "integrity" "sha1-hk7xN5rO1Vzm+V3r7NzhefegzR0="
+  "resolved" "https://registry.npmjs.org/dotenv/-/dotenv-4.0.0.tgz"
+  "version" "4.0.0"
+
 "dotenv@^5.0.1":
   "integrity" "sha512-4As8uPrjfwb7VXC+WnLCbXK7y+Ueb2B3zgNCePYfhxS1PYeaO1YTeplffTEcbfLhvFNGLAz90VvJs9yomG7bow=="
   "resolved" "https://registry.npmjs.org/dotenv/-/dotenv-5.0.1.tgz"
   "version" "5.0.1"
-
-"dotenv@4.0.0":
-  "integrity" "sha1-hk7xN5rO1Vzm+V3r7NzhefegzR0="
-  "resolved" "https://registry.npmjs.org/dotenv/-/dotenv-4.0.0.tgz"
-  "version" "4.0.0"
 
 "dotignore@~0.1.2":
   "integrity" "sha512-UGGGWfSauusaVJC+8fgV+NVvBXkCTmVv7sk6nojDZZvuOUNGUy0Zk4UpHQD6EDjS0jpBwcACvH4eofvyzBcRDw=="
