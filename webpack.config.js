@@ -1,6 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
-const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
+// const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 process.env.NODE_ENV = process.env.NODE_ENV || "development";
