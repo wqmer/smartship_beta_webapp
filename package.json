@@ -9,7 +9,7 @@
   "author": "Kimmy",
   "license": "MIT",
   "scripts": {
-    "start": "node --max-old-space-size=4096 server/server.js",
+    "start": "node --max-old-space-size=4096 --max-http-header-size=8000 server/server.js",
     "heroku-postbuild": "webpack --env production",
     "build:dev": "webpack",
     "build:prod": "webpack --env production",

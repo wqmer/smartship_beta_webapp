@@ -95,8 +95,8 @@ module.exports = (env) => {
       proxy: {
         "/api": {
           target:
-            "http://betasmartshipwebapi-env.eba-trdcmqzd.us-west-2.elasticbeanstalk.com",
-          // target: "http://[::1]:5050",
+            // "http://betasmartshipwebapi-env.eba-trdcmqzd.us-west-2.elasticbeanstalk.com",
+            "http://[::1]:5050",
           pathRewrite: { "^/api": "" },
           changeOrigin: true,
           secure: false,
