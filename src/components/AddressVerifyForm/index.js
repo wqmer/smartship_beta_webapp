@@ -667,18 +667,15 @@ class AddressForm extends React.Component {
         country_code: "US",
       });
 
-      let result = await post(
-        "beta/addressValidate",
-        JSON.stringify({
-          line1: udpateData.address_one,
-          line2: udpateData.address_two,
-          line3: "",
-          city: udpateData.city,
-          state_province: udpateData.state,
-          postal_code: udpateData.zip_code,
-          country_code: "US",
-        })
-      );
+      let result = await post("beta/addressValidate", {
+        line1: udpateData.address_one,
+        line2: udpateData.address_two,
+        line3: "",
+        city: udpateData.city,
+        state_province: udpateData.state,
+        postal_code: udpateData.zip_code,
+        country_code: "US",
+      });
 
       if (result.code == 0) {
         message.success({
